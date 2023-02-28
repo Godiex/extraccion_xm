@@ -10,7 +10,7 @@ class HttpClientXm:
         permite la creacion de un cliente para consumir archivos de la api publica de XM
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.BASE_URL = os.environ["BASE_URL"]
 
     def get(self, complementary_base_url: str) -> Response:

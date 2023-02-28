@@ -11,7 +11,7 @@ from core.services.crom_processing_service import CromProcessingService
 class ScriptMixin(object):
     
     @staticmethod
-    def _wire_modules():
+    def _wire_modules() -> None:
         container = Container()
         container.wire(modules=[sys.modules[__name__]])
 
@@ -19,5 +19,5 @@ class ScriptMixin(object):
     def _process_crom(
         self,
         crom_processing_service: CromProcessingService = Provide[Container.crom_processing_service]
-    ):
-        crom_processing_service.get()
+    ) -> None:
+        crom_processing_service.process_crom()
